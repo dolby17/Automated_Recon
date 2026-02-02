@@ -2,35 +2,26 @@ from modules.recon.orchestrator import ReconOrchestrator
 from modules.recon.modules.subdomain_passive import PassiveSubdomainRecon
 
 
-def run(args):
+def run(targets, options=None):
     """
-    Main execution runner – Phase 1 Step 5 (Passive Recon).
+    Central execution runner.
+    Phase 1 Step 4: Orchestration only.
+
+    Args:
+        targets (list[str]): List of target domains
+        options (dict | None): CLI/options context (unused in Phase 1)
+
+    Returns:
+        dict: Aggregated reconnaissance results
     """
 
-    # ----------------------------
-    # 1. Target handling
-    # ----------------------------
-    target = args.target
-    targets = [target]
-
-    # ----------------------------
-    # 2. Recon Phase
-    # ----------------------------
-    print("[+] Running reconnaissance phase")
-
+    # Initialize orchestrator with targets
     orchestrator = ReconOrchestrator(targets)
+
+    # Register Phase 1 passive recon module
     orchestrator.register_module(PassiveSubdomainRecon)
 
+    # Execute recon workflow
     results = orchestrator.run()
 
-    # ----------------------------
-    # 3. Print results
-    # ----------------------------
-    if not results:
-        print("[!] No recon results returned")
-        return
-
-    for t, outputs in results.items():
-        print(f"[+] Recon results for {t}")
-        for output in outputs:
-            print(output)
+    return results

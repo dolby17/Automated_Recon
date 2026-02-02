@@ -6,13 +6,13 @@ from core.runner import run
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description="AREVA - Automated Recon & Vulnerability Assessment Tool"
+        description="Automated Recon & Vulnerability Assessment Framework"
     )
 
     parser.add_argument(
         "-t", "--target",
-        help="Target domain or IP address",
-        required=True
+        required=True,
+        help="Target domain (e.g. example.com)"
     )
 
     parser.add_argument(
@@ -27,11 +27,31 @@ def parse_arguments():
 def main():
     args = parse_arguments()
 
-    print("[+] Target:", args.target)
+    # ----------------------------
+    # 1. Prepare targets
+    # ----------------------------
+    targets = [args.target]
 
+    # ----------------------------
+    # 2. Execute runner
+    # ----------------------------
     if args.recon:
-        print("[+] Running reconnaissance phase")
-        run(args)   
+        results = run(targets, vars(args))
+    else:
+        print("[!] No action specified")
+        return
+
+    # ----------------------------
+    # 3. Print results
+    # ----------------------------
+    if not results:
+        print("[!] No results returned")
+        return
+
+    for target, outputs in results.items():
+        print(f"\n[+] Recon results for {target}")
+        for output in outputs:
+            print(output)
 
 
 if __name__ == "__main__":
