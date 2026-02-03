@@ -1,4 +1,6 @@
 from typing import List, Dict
+
+from core.context import ReconContext
 from modules.recon.modules.base import ReconModule
 
 class ReconOrchestrator:
@@ -6,16 +8,24 @@ class ReconOrchestrator:
         self.targets = targets
         self.modules = []
 
-    def register_module(self, module_cls):
+    def register_module(self, module_cls: type[ReconModule]) -> None:
         self.modules.append(module_cls)
 
-    def run(self) -> Dict[str, list]:
-        results = {}
+    def run(self) -> Dict[str, ReconContext]:
+        results: Dict[str, ReconContext] = {}
 
         for target in self.targets:
-            results[target] = []
+            context = ReconContext(target)
+            
             for module_cls in self.modules:
-                module = module_cls(target)
-                results[target].append(module.run())
+                module = module_cls()
+                module.run(context)
+
+
+                context.metadata["modules_run"].append(module.name)
+
+            context.mark_finished()
+
+            results[target] = context
 
         return results

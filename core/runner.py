@@ -1,27 +1,27 @@
 from modules.recon.orchestrator import ReconOrchestrator
-from modules.recon.modules.subdomain_passive import PassiveSubdomainRecon
+
+# Import recon modules here
+from modules.dns_enum import DNSEnumerationModule
+from modules.subdomain_enum import SubdomainEnumerationModule
+from modules.ip_resolution import IPResolutionModule
+from modules.port_scan import PortScanModule
 
 
 def run(targets, options=None):
     """
     Central execution runner.
-    Phase 1 Step 4: Orchestration only.
-
-    Args:
-        targets (list[str]): List of target domains
-        options (dict | None): CLI/options context (unused in Phase 1)
-
-    Returns:
-        dict: Aggregated reconnaissance results
+    Returns ReconContext per target.
     """
 
-    # Initialize orchestrator with targets
     orchestrator = ReconOrchestrator(targets)
 
-    # Register Phase 1 passive recon module
-    orchestrator.register_module(PassiveSubdomainRecon)
+    # Register Phase 2 recon modules (ORDER MATTERS)
+    orchestrator.register_module(DNSEnumerationModule)
+    orchestrator.register_module(SubdomainEnumerationModule)
+    orchestrator.register_module(IPResolutionModule)
+    orchestrator.register_module(PortScanModule)
 
-    # Execute recon workflow
+    # Execute workflow
     results = orchestrator.run()
 
     return results
