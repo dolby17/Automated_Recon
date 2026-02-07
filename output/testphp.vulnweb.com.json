@@ -1,0 +1,41 @@
+{
+  "dns_records": {
+    "A": [
+      "44.228.249.3"
+    ],
+    "AAAA": [],
+    "MX": [],
+    "NS": [],
+    "TXT": [
+      "\"google-site-verification:toEctYsulNIxgraKk7H3z58PCyz2IOCc36pIupEPmYQ\""
+    ]
+  },
+  "domains": [
+    "testphp.vulnweb.com"
+  ],
+  "ips": [
+    "44.228.249.3"
+  ],
+  "metadata": {
+    "domain_count": 1,
+    "duration_seconds": 21.92,
+    "host_count": 1,
+    "ip_count": 1,
+    "modules_run": [
+      "dns_enumeration",
+      "subdomain_enumeration",
+      "ip_resolution",
+      "port_scan"
+    ],
+    "report_generated": "2026-02-07T19:02:27.334815+00:00",
+    "scan_finished": "2026-02-07T19:02:27.334787+00:00",
+    "scan_started": "2026-02-07T19:02:05.418591+00:00"
+  },
+  "open_ports": {
+    "44.228.249.3": [
+      21,
+      53
+    ]
+  },
+  "target": "testphp.vulnweb.com"
+}

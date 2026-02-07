@@ -24,4 +24,7 @@ def run(targets, options=None):
     # Execute workflow
     results = orchestrator.run()
 
+    for context in results.values():
+        context.finalize()
+
     return results

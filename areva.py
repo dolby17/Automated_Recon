@@ -2,12 +2,17 @@
 
 import argparse
 import sys
-from core.runner import run
 from pathlib import Path
+
+from core.runner import run
+from core.vuln_runner import run_vuln_scan
+from core.vuln_context import VulnContext
 
 from core.reporting.builder import ReportBuilder
 from core.reporting.summary import SummaryBuilder
 from core.reporting.exporters.json_exporter import JSONExporter
+from core.reporting_runner import generate_reports
+
 
 
 
@@ -45,6 +50,16 @@ def parse_arguments():
     return parser.parse_args()
 
 
+def run_vulnerability_phase(target, recon_data):
+    context = VulnContext(
+        headers=getattr(recon_data,"headers",[]),
+        ports=getattr(recon_data,"ports",[]),
+        urls=getattr(recon_data,"urls",[]),
+    )
+
+    return run_vuln_scan(target, context)
+
+
 def main():
     args = parse_arguments()
 
@@ -77,6 +92,23 @@ def main():
             print(line)
         print("-" * 40)
 
+        vuln_results = run_vulnerability_phase(target, context)
+
+        if vuln_results:
+            print("\nVulnerability Findings")
+            print("-" * 40)
+            for v in vuln_results:
+                print(
+                    f"{v['risk_level']} | {v['vulnerability']} | {v.get('url', '-')}"
+                )
+            print("-" * 40)
+
+            reports = generate_reports(vuln_results)
+
+            print("[+] Reports generated")
+            print(f"    JSON: {reports['json']}")
+            print(f"    HTML: {reports['html']}")
+
         # Phase 2.5.3 — Step 5
         if args.output:
             output_dir = Path(args.output)
@@ -89,6 +121,8 @@ def main():
             )
 
             print(f"[+] Report saved to: {output_dir / filename}")
+
+
 
 
 if __name__ == "__main__":
