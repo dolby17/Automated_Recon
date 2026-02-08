@@ -123,12 +123,21 @@ python areva.py --help
 
 <img width="637" height="236" alt="image" src="https://github.com/user-attachments/assets/d46e6967-6303-4952-96b3-c153a7ab6bea" />
 
+
+
+
 📄 Example Output
 
+
+
 Console Summary
+
+
 <img width="545" height="288" alt="image" src="https://github.com/user-attachments/assets/79b9c20a-5415-4e05-937d-55530c882753" />
 
 JSON Report
+
+
 <img width="482" height="865" alt="image" src="https://github.com/user-attachments/assets/2282f59b-35da-49f8-9e45-0d9568d84291" />
 
 
