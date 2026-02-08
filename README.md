@@ -37,27 +37,7 @@ The tool generates **structured reports** that can be reviewed, shared, or exten
 
 ## Project Architecture
 
-areva.py # CLI entry point
-│
-├── core/
-│ ├── runner.py # Recon pipeline execution
-│ ├── vuln_runner.py # Vulnerability scan engine
-│ ├── vuln_context.py # Context passed to vuln checks
-│ └── reporting/
-│ ├── builder.py # Builds final report object
-│ ├── summary.py # Console summary generator
-│ └── exporters/
-│ └── json_exporter.py
-│
-├── modules/
-│ ├── dns_enum.py
-│ ├── subdomain_enum.py
-│ ├── ip_resolution.py
-│ └── port_scan.py
-│
-└── reports/ # Generated reports (optional)
-
-
+<img width="697" height="474" alt="image" src="https://github.com/user-attachments/assets/0cfd8295-c560-435c-bf24-9fdabae2cb70" />
 
 ---
 
