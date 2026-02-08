@@ -70,24 +70,31 @@ areva.py                     # CLI entry point
 🛠️ Requirements
 
 •Python 3.8+
+
 •No external Python dependencies
 
 
 🚀 Installation
 
-git clone https://github.com/<your-username>/automated-recon
-cd automated-recon
-pip install -r requirements.txt
+-> git clone https://github.com/<your-username>/automated-recon
+
+-> cd automated-recon
+
+-> pip install -r requirements.txt
 
 
 ▶️ How to Use AREVA (Step-by-Step)
 
 1️⃣ Basic Recon (console output only)
 
-python areva.py -t demo.testfire.net --recon
+
+
+-> python areva.py -t demo.testfire.net --recon
 
 
 What this does:
+
+
 •Runs full recon + vulnerability pipeline
 
 •Prints a structured summary to the terminal
@@ -95,33 +102,47 @@ What this does:
 •Does not save a file unless output is specified
 
 
+
+
 2️⃣ Recon + Save Report to Disk (recommended)
 
-python areva.py -t demo.testfire.net --recon --output reports
+-> python areva.py -t demo.testfire.net --recon --output reports
+
+
 
 
 What this does:
 
 •Runs the full pipeline
 
+
 •Prints summary
+
 
 •Saves a JSON report to reports/
 
 
+
+
+
 After running:
-ls reports/
+
+-> ls reports/
 
 You will see:
-demo.testfire.net.json
+
+-> demo.testfire.net.json
 
 
 3️⃣ View the Generated Report
-cat reports/demo.testfire.net.json
+
+
+-> cat reports/demo.testfire.net.json
 
 4️⃣ Check Available CLI Options
 
-python areva.py --help
+-> python areva.py --help
+
 
 <img width="637" height="236" alt="image" src="https://github.com/user-attachments/assets/d46e6967-6303-4952-96b3-c153a7ab6bea" />
 
