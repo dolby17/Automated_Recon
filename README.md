@@ -84,13 +84,100 @@ pip install -r requirements.txt
 python areva.py -t demo.testfire.net --recon
 ```
 
-What this does:
+## What this does:
 
-Runs the full reconnaissance and vulnerability pipeline
+- Runs the full reconnaissance and vulnerability pipeline
 
-Prints a structured summary to the terminal
+- Prints a structured summary to the terminal
 
-Does not save output to disk
+- Does not save output to disk
 
+## Recon and Save Report to Disk (Recommended)
+```bash
+python areva.py -t demo.testfire.net --recon --output reports
+```
+
+## What this does:
+
+- Runs the full pipeline
+
+- Prints the recon summary
+
+- Saves a JSON report inside the reports/ directory
+
+After execution:
+```bash
+ls reports/
+```
+
+Expected output:
+```bash
+demo.testfire.net.json
+```
+
+### View the Generated Report
+```bash
+cat reports/demo.testfire.net.json
+```
+
+### View Available CLI Options
+```bash
+python areva.py --help
+```
+
+##Example Output
+
+###Console Summary
+<img width="545" height="288" alt="Recon Summary Output" src="https://github.com/user-attachments/assets/79b9c20a-5415-4e05-937d-55530c882753" />
+###JSON Report
+<img width="482" height="865" alt="JSON Report Output" src="https://github.com/user-attachments/assets/2282f59b-35da-49f8-9e45-0d9568d84291" />
+
+## Authorized Test Targets
+
+Use AREVA only on systems you own or are explicitly allowed to test.
+
+Safe public test targets include:
+
+-demo.testfire.net
+
+-portswigger.net
+
+-tryhackme.com
+
+-owasp.org
+
+Do not scan:
+
+-Random companies
+
+-Banks or financial institutions
+
+-Government websites
+
+-Live production systems
+
+## Ethical Usage
+
+This project follows ethical hacking and responsible security testing principles.
+
+By using AREVA, you agree to:
+
+-Test only authorized targets
+
+-Respect applicable laws and policies
+
+-Use results for learning and defensive purposes only
+
+## Future Improvements
+
+-Service fingerprinting
+
+-HTTP security header analysis
+
+-TLS configuration checks
+
+-HTML / CSV report exporters
+
+-Parallel and asynchronous scanning
 
 
