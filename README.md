@@ -184,11 +184,6 @@ By using AREVA, you agree to:
 •Parallel scanning
 
 
-👨‍💻 Author
-
-Veer Pratap Shekhar
-Computer Science & Engineering (AI) Undergraduate
-
 
 
 
