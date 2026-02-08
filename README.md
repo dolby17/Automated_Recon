@@ -127,9 +127,13 @@ python areva.py --help
 
 ##Example Output
 
-###Console Summary
+### Console Summary
+
 <img width="545" height="288" alt="Recon Summary Output" src="https://github.com/user-attachments/assets/79b9c20a-5415-4e05-937d-55530c882753" />
-###JSON Report
+
+
+### JSON Report
+
 <img width="482" height="865" alt="JSON Report Output" src="https://github.com/user-attachments/assets/2282f59b-35da-49f8-9e45-0d9568d84291" />
 
 ## Authorized Test Targets
