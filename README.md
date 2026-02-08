@@ -74,12 +74,23 @@ areva.py # CLI entry point
 git clone https://github.com/<your-username>/automated-recon
 cd automated-recon
 pip install -r requirements.txt
+```
 
 
 ## Usage
 
 ### Basic Recon (Console Output Only)
-
-```
+```bash
 python areva.py -t demo.testfire.net --recon
+```
+
+What this does:
+
+Runs the full reconnaissance and vulnerability pipeline
+
+Prints a structured summary to the terminal
+
+Does not save output to disk
+
+
 
