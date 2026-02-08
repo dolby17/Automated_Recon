@@ -125,7 +125,7 @@ cat reports/demo.testfire.net.json
 python areva.py --help
 ```
 
-##Example Output
+## Example Output
 
 ### Console Summary
 
@@ -150,7 +150,7 @@ Safe public test targets include:
 
 -owasp.org
 
-Do not scan:
+### Do not scan:
 
 -Random companies
 
