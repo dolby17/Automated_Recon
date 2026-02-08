@@ -14,6 +14,8 @@ It automates the early phases of a security assessment by performing:
 
 
 ✨ Features
+
+
 🔍 Reconnaissance
 
 •DNS enumeration
