@@ -80,6 +80,6 @@ pip install -r requirements.txt
 
 ### Basic Recon (Console Output Only)
 
-```bash
+```
 python areva.py -t demo.testfire.net --recon
 
